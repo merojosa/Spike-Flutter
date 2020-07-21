@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spike/async.dart';
+import 'package:spike/boton.dart';
 import 'package:spike/sintaxis.dart';
 import 'package:spike/stateless_stateful.dart';
 import 'package:spike/widgets.dart';
@@ -14,11 +15,7 @@ class MyApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: 'Spike Flutter',
       home: MyHomePage(title: 'Spike Flutter'),
     );
   }
@@ -55,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage>
     );
   }
 
-  void _stalessStateful()
+  void _statelessStateful()
   {
     Navigator.push(
       context,
@@ -89,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage>
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            
             Container(
               width: 350,
               child: FlatButton(
@@ -116,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage>
             Container(
               width: 350,
               child: FlatButton(
-                onPressed: _stalessStateful,
+                onPressed: _statelessStateful,
                 child: Text("Stateless y Stateful", 
                 style: TextStyle(
                   fontSize: 20),
@@ -141,33 +139,10 @@ class _MyHomePageState extends State<MyHomePage>
               width: 350,
               child: FlatButton(
                 onPressed: null,
-                child: Text("Paquetes", 
+                child: Text("Ejemplo (paquetes, Firebase y widgets más complejos)", 
                 style: TextStyle(
                   fontSize: 20),
-                ), 
-                textColor: Colors.white,
-                color: Colors.blue,),
-            ),
-
-            Container(
-              width: 350,
-              child: FlatButton(
-                onPressed: null,
-                child: Text("Firebase", 
-                style: TextStyle(
-                  fontSize: 20),
-                ), 
-                textColor: Colors.white,
-                color: Colors.blue,),
-            ),
-
-            Container(
-              width: 350,
-              child: FlatButton(
-                onPressed: null,
-                child: Text("Ejemplo", 
-                style: TextStyle(
-                  fontSize: 20),
+                  textAlign: TextAlign.center,
                 ), 
                 textColor: Colors.white,
                 color: Colors.blue,),
@@ -175,13 +150,24 @@ class _MyHomePageState extends State<MyHomePage>
 
 
             /*
+            // Si el botoncito solo lo uso aqui
             _crearBoton(texto: "Sintaxis", metodo: _sintaxis),
-            _crearBoton(texto: "Sintaxis", ),
-            _crearBoton(texto: "Widgets"),
-            _crearBoton(texto: "Staless y Stateful"),
-            _crearBoton(texto: "Métodos asincrónicos"),
-            _crearBoton(texto: "Firebase")
+            _crearBoton(texto: "Widgets", metodo: _widgets),
+            _crearBoton(texto: "Staless y Stateful", metodo: _statelessStateful),
+            _crearBoton(texto: "Métodos asincrónicos", metodo: _async),
+            _crearBoton(texto: "Ejemplo (paquetes, Firebase y widgets más complejos)", metodo: null),
             */
+
+            /*
+            // Si el botoncito se va a usar en otros widgets
+            BotonBonito(texto: "Sintaxis", metodo: _sintaxis,),
+            BotonBonito(texto: "Widgets", metodo: _widgets,),
+            BotonBonito(texto: "Staless y Stateful", metodo: _statelessStateful,),
+            BotonBonito(texto: "Métodos asincrónicos", metodo: _async,),
+            BotonBonito(texto: "Ejemplo (paquetes, Firebase y widgets más complejos)", metodo: null,),
+            */
+            
+            
 
           ],
         ),
@@ -198,6 +184,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: Text(texto, 
         style: TextStyle(
           fontSize: 20),
+          textAlign: TextAlign.center,
         ), 
         textColor: Colors.white,
         color: Colors.blue,),
