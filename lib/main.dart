@@ -140,8 +140,32 @@ class _MyHomePageState extends State<MyHomePage>
             Container(
               width: 350,
               child: FlatButton(
-                onPressed: _sintaxis,
+                onPressed: null,
+                child: Text("Paquetes", 
+                style: TextStyle(
+                  fontSize: 20),
+                ), 
+                textColor: Colors.white,
+                color: Colors.blue,),
+            ),
+
+            Container(
+              width: 350,
+              child: FlatButton(
+                onPressed: null,
                 child: Text("Firebase", 
+                style: TextStyle(
+                  fontSize: 20),
+                ), 
+                textColor: Colors.white,
+                color: Colors.blue,),
+            ),
+
+            Container(
+              width: 350,
+              child: FlatButton(
+                onPressed: null,
+                child: Text("Ejemplo", 
                 style: TextStyle(
                   fontSize: 20),
                 ), 

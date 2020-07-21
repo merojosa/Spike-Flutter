@@ -29,6 +29,7 @@ class _EjemploAsyncState extends State<EjemploAsync>
     });
   }
 
+  // En el ejemplo lo vemos a mayor profundidad
   @override
   Widget build(BuildContext context) 
   {

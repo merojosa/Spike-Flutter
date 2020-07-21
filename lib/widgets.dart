@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spike/checkbox.dart';
 
 // https://flutter.dev/docs/development/ui/widgets
 class Widgets extends StatefulWidget {
@@ -6,12 +7,61 @@ class Widgets extends StatefulWidget {
   _WidgetsState createState() => _WidgetsState();
 }
 
-class _WidgetsState extends State<Widgets> {
+BottomNavigationBar _crearBottomNavBar()
+  {
+    return BottomNavigationBar(
+
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.grey[100],
+
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Inicio'),
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb_outline),
+            title: Text('Consejos'),
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_pin),
+            title: Text('Perfil'),
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dehaze),
+            title: Text('Más'),
+          ),
+        ],
+
+        currentIndex: 0,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
+        onTap: null,
+      
+    );
+  }
+
+class _WidgetsState extends State<Widgets> 
+{
+  void _checkbox()
+  {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EjemploCheckbox(),
+      ),
+    );
+  }
+
+
+  // En el ejemplo vemos ejemplos mas complejos
   @override
   Widget build(BuildContext context) 
   {
     return Scaffold(
-
 
       appBar: AppBar(
         title: Text("Widgets"),
@@ -47,17 +97,20 @@ class _WidgetsState extends State<Widgets> {
 
 
           RaisedButton(
-            onPressed: () {},
+            onPressed: _checkbox,
             child: const Text(
-              'Botón',
+              'Lista de checkbox',
               style: TextStyle(fontSize: 20)
             ),
           ),
+          
 
           // Ver main para entender la importancia de la modularizacion
 
         ],
-      )
+      ),
+
+      bottomNavigationBar: _crearBottomNavBar()
 
     );
   }
